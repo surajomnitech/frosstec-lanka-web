@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #303E8C;
+  --color-primary-dark: #273A73;
+  --color-primary-light: #4F6BBF;
+  --color-accent: #BF4215;
+  --color-background: #F8F9FA;
+  --color-neutral: #E5E7EB;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-neutral: var(--color-neutral);
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-primary-dark);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white font-medium py-3 px-6 rounded-xl transition-colors duration-200 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/20;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-primary border-2 border-primary font-medium py-3 px-6 rounded-xl transition-colors duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+
+  .card {
+    @apply bg-white border border-neutral rounded-xl shadow-sm transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .section {
+    @apply py-16 lg:py-24;
+  }
+
+  .heading {
+    @apply text-primary-dark font-bold text-3xl lg:text-4xl;
+  }
+
+  .subheading {
+    @apply text-primary font-semibold text-xl lg:text-2xl;
+  }
+
+  .text-muted {
+    @apply text-primary-dark/70;
+  }
+
+  .border-default {
+    @apply border-neutral;
+  }
 }
