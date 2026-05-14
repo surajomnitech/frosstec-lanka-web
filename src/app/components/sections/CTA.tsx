@@ -42,7 +42,7 @@ export default function CTA({}: CTAProps) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+    <section ref={sectionRef} className="pt-28 lg:pt-32 pb-20 lg:pb-24 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233B82F6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -83,12 +83,12 @@ export default function CTA({}: CTAProps) {
 
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
-          <h2 className="cta-animate text-3xl md:text-5xl font-bold text-primary-dark mb-6 leading-tight">
+          <h2 className="cta-animate text-[clamp(2rem,4.5vw,3rem)] font-extrabold text-primary-dark mb-6 leading-[1.12] max-w-[24ch] mx-auto">
             Ready to Transform Your Industrial Cooling Systems?
           </h2>
 
           {/* Subheading */}
-          <p className="cta-animate text-lg md:text-xl text-primary-dark/70 mb-12 leading-relaxed max-w-2xl mx-auto">
+          <p className="cta-animate text-[1.125rem] text-primary-dark/70 mb-12 leading-[1.75] max-w-[60ch] mx-auto">
             Join leading Sri Lankan industries who trust Frosstec Lanka for reliable, 
             energy-efficient refrigeration and HVAC solutions that deliver lasting performance.
           </p>

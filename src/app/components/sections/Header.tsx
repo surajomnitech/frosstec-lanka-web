@@ -3,20 +3,22 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PhoneCall , Menu, X } from 'lucide-react';
 
 const NAVIGATION_LINKS = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'About', href: '#about' },
+  { name: 'Industries', href: '#industries' },
+  { name: 'About Us', href: '#about' },
   { name: 'Contact', href: '#contact' },
 ];
 
-interface HeaderProps {}
+interface HeaderProps { }
 
-export default function Header({}: HeaderProps) {
+export default function Header({ }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuLinksRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -37,6 +39,21 @@ export default function Header({}: HeaderProps) {
           const next = window.scrollY > 10;
           return prev !== next ? next : prev;
         });
+
+        // Update active section based on scroll position
+        const sections = NAVIGATION_LINKS.map(link => link.href.slice(1));
+        const currentSection = sections.find(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        
+        if (currentSection) {
+          setActiveSection(currentSection);
+        }
       });
     };
 
@@ -76,7 +93,7 @@ export default function Header({}: HeaderProps) {
       document.removeEventListener('keydown', handleKeyDown);
       cancelAnimationFrame(rafId);
     };
-  }, []); // Empty dependency array - listeners run only once
+  }, []);
 
   const toggleMobileMenu = () => {
     const newState = !isMobileMenuOpen;
@@ -106,15 +123,14 @@ export default function Header({}: HeaderProps) {
 
   return (
     <header 
-      className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled 
-          ? 'bg-background/90 backdrop-blur-md border-b border-neutral/50 shadow-lg' 
-          : 'bg-background'
+      className={`sticky top-0 z-50 transition-all duration-500 ease-out bg-white border-b border-transparent ${
+        isScrolled ? 'shadow-lg border-neutral/20' : ''
       }`}
+      style={{ height: '72px' }}
       role="banner"
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link 
@@ -125,12 +141,12 @@ export default function Header({}: HeaderProps) {
               <Image
                 src="/ft-logo-notext.webp"
                 alt="FROSSTEC LANKA"
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 priority
-                className="mr-3 transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-0.5"
+                className="mr-3 transition-transform duration-500 ease-out group-hover:scale-105"
               />
-              <span className="text-2xl font-semibold tracking-tight text-primary-dark transition-colors duration-300 group-hover:text-primary">
+              <span className="text-xl font-bold tracking-tight text-primary transition-colors duration-300">
                 FROSSTEC LANKA
               </span>
             </Link>
@@ -138,27 +154,42 @@ export default function Header({}: HeaderProps) {
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden md:flex items-center space-x-8"
+            className="hidden md:flex items-center space-x-8 flex-1 justify-center"
             role="navigation"
             aria-label="Main navigation"
           >
-            {NAVIGATION_LINKS.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="relative text-primary-dark font-medium transition-all duration-300 hover:text-primary-light hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-md px-2 py-1 group"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-light transition-all duration-300 group-hover:w-full" aria-hidden="true"></span>
-              </Link>
-            ))}
+            {NAVIGATION_LINKS.map((link) => {
+              const sectionId = link.href.slice(1);
+              const isActive = activeSection === sectionId || (sectionId === 'home' && activeSection === 'home');
+              
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative font-medium transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-md px-2 py-1 group ${
+                    isActive 
+                      ? 'text-accent' 
+                      : 'text-primary hover:text-accent'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full" aria-hidden="true"></span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link href="#contact" className="btn-primary transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/20">
-              Get a Quote
-            </Link>
+            <Link 
+  href="tel:0777399999" 
+  className="bg-accent text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 hover:bg-accent/90 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/20 flex items-center space-x-2"
+>
+  <PhoneCall className="w-4 h-4" />
+  <span className="font-semibold">077 739 9999</span>
+</Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -166,29 +197,17 @@ export default function Header({}: HeaderProps) {
             <button
               ref={mobileMenuButtonRef}
               onClick={toggleMobileMenu}
-              className="relative p-2 text-primary-dark hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
+              className="relative p-2 text-primary hover:text-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               type="button"
             >
-              <div className="w-6 h-6 flex flex-col justify-center items-center" aria-hidden="true">
-                <span 
-                  className={`absolute w-5 h-0.5 bg-current transition-all duration-300 ${
-                    isMobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
-                  }`}
-                ></span>
-                <span 
-                  className={`w-5 h-0.5 bg-current transition-all duration-300 ${
-                    isMobileMenuOpen ? 'opacity-0' : ''
-                  }`}
-                ></span>
-                <span 
-                  className={`absolute w-5 h-0.5 bg-current transition-all duration-300 ${
-                    isMobileMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
-                  }`}
-                ></span>
-              </div>
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -200,32 +219,42 @@ export default function Header({}: HeaderProps) {
           className={`md:hidden transition-all duration-500 ease-out ${
             isMobileMenuOpen 
               ? 'opacity-100 translate-y-0 pointer-events-auto' 
-              : 'opacity-0 -translate-y-2 pointer-events-none absolute left-0 top-full w-full'
+              : 'opacity-0 -translate-y-2 pointer-events-none absolute left-0 top-full w-full bg-white border-b border-neutral/20'
           }`}
           role="navigation"
           aria-label="Mobile navigation"
         >
-          <div className="py-6 space-y-2 border-t border-neutral/50 mt-4">
-            {NAVIGATION_LINKS.map((link, index) => (
-              <Link
-                key={link.name}
-                ref={(el) => {
-                  mobileMenuLinksRef.current[index] = el;
-                }}
-                href={link.href}
-                className="block text-primary-dark hover:text-primary-light hover:bg-primary/5 font-medium py-3 px-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                onClick={closeMobileMenu}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-neutral/50 mt-4">
+          <div className="py-6 space-y-2">
+            {NAVIGATION_LINKS.map((link, index) => {
+              const sectionId = link.href.slice(1);
+              const isActive = activeSection === sectionId || (sectionId === 'home' && activeSection === 'home');
+              
+              return (
+                <Link
+                  key={link.name}
+                  ref={(el) => {
+                    mobileMenuLinksRef.current[index] = el;
+                  }}
+                  href={link.href}
+                  className={`block font-medium py-3 px-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 ${
+                    isActive 
+                      ? 'text-accent bg-accent/5' 
+                      : 'text-primary hover:text-accent hover:bg-accent/5'
+                  }`}
+                  onClick={closeMobileMenu}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+            <div className="pt-4 border-t border-neutral/20">
               <Link 
-                href="#contact"
-                className="btn-primary w-full transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/20"
+                href="tel:0777399999"
+                className="bg-accent text-white px-4 py-3 rounded-full font-medium transition-all duration-300 hover:bg-accent/90 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/20 flex items-center justify-center space-x-2 w-full"
                 onClick={closeMobileMenu}
               >
-                Get a Quote
+                <PhoneCall className="w-4 h-4" />
+                <span>077 739 9999</span>
               </Link>
             </div>
           </div>
