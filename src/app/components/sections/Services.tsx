@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight, Wrench, ShieldCheck, Snowflake, Warehouse, ThermometerSnowflake, MessageSquare } from 'lucide-react';
+import { Wrench, ShieldCheck, Snowflake, Warehouse, ThermometerSnowflake, MessageSquare } from 'lucide-react';
 
 export default function Services() {
   const services = [
@@ -73,7 +73,7 @@ mb-5"
         {/* Services Grid */}
         // In Services.tsx - update card styling
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
           {services.map((service, index) => (
             <div
               key={index}
@@ -103,32 +103,12 @@ mb-5"
                 </h3>
 
                 {/* Description */}
-                <p className="text-[0.875rem] text-white/55 leading-[1.65] flex-1">
+                <p className="text-[0.875rem] text-white/55 leading-[1.65]">
                   {service.description}
                 </p>
-
-                {/* Link */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-[0.825rem] font-bold mt-4 group-hover:gap-2.5 transition-all duration-[220ms]"
-                >
-                  Learn More
-                  <ArrowRight className="w-3 h-3" />
-                </a>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-18 lg:mt-20">
-          <a
-            href="#contact"
-            className="inline-flex items-center bg-transparent border border-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-accent hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/20 group"
-          >
-            <span>Talk to Our Team</span>
-            <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
         </div>
       </div>
     </section>

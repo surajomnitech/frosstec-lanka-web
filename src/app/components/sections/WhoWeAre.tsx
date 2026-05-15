@@ -32,14 +32,15 @@ export default function WhoWeAre() {
                     {/* Right Column - Content */}
                     <div className="order-1 lg:order-2 max-w-[620px]">
                         {/* Eyebrow */}
-                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full 
+                        <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full 
 bg-primary/5 
 border border-primary/15 
 shadow-[0_4px_20px_rgba(0,0,0,0.08)] 
+backdrop-blur-xl 
 mb-5"
                         >
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                            <span className="text-primary font-bold text-[0.7rem] uppercase tracking-[0.12em]">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                            <span className="text-primary font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.2em]">
                                 WHO WE ARE
                             </span>
                         </div>
@@ -52,7 +53,7 @@ mb-5"
                         {/* Paragraphs */}
                         <div className="space-y-4 mb-8">
                             <p className="text-[1.0625rem] text-gray-700 leading-[1.7]">
-                                At Frosstec, we&​apos;re more than just refrigeration experts —
+                                At Frosstec, we&apos;re more than just refrigeration experts —
                                 we are your trusted partners in keeping your business cool,
                                 efficient, and always running smoothly.
                             </p>
@@ -93,7 +94,7 @@ mb-5"
                         </div>
 
                         {/* CTA Button */}
-                        <div>
+                        <div className="flex justify-center md:justify-start">
                             <a
                                 href="#contact"
                                 className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full text-[0.9rem] font-bold tracking-[0.02em] hover:bg-primary/90 hover:shadow-[0_4px_18px_rgba(14,22,48,0.35)] active:scale-[0.97] transition-all duration-[220ms] focus:outline-none focus:ring-2 focus:ring-primary/20"

@@ -8,6 +8,7 @@ import EquipmentSection from './components/sections/Equipment';
 import WhyChooseUs from './components/sections/WhyChooseUs';
 import AboutUs from './components/sections/AboutUs';
 import Footer from './components/sections/Footer';
+import MobileFloatingCTA from './components/MobileFloatingCTA';
 
 const CTA = () => (
   <section className="py-20 lg:py-24 bg-gradient-to-br from-white via-gray-50 to-white">
@@ -55,7 +56,7 @@ const CTA = () => (
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-24 md:pb-0">
       <Header />
       <Hero />
       <TrustBar />
@@ -67,6 +68,7 @@ export default function Home() {
       <AboutUs />
       <CTA />
       <Footer />
+      <MobileFloatingCTA />
     </main>
   );
 }

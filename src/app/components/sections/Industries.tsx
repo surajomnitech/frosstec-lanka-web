@@ -83,47 +83,35 @@ mb-5"
         </div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="group relative rounded-xl overflow-hidden cursor-pointer"
+              className="group relative rounded-xl overflow-hidden cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ease-out"
               style={{ aspectRatio: '3/2' }}
             >
               <Image
                 src={industry.image}
                 alt={`${industry.title} - Frosstec commercial refrigeration solutions`}
                 fill
-                className="object-cover group-hover:scale-106 transition-transform duration-500 ease-out"
+                className="object-cover group-hover:scale-[1.06] transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E1630]/82 via-[#0E1630]/30 to-transparent/15 group-hover:from-[#0E1630]/90 transition-all duration-[220ms]"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E1630]/88 via-[#0E1630]/35 to-transparent/10 group-hover:from-[#0E1630]/92 transition-all duration-300 ease-out"></div>
 
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-3.5">
-                <h3 className="text-[0.95rem] font-bold text-white leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-4">
+                <h3 className="text-[0.9375rem] sm:text-[1.0625rem] font-extrabold text-white leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]">
                   {industry.title}
                 </h3>
-                <p className="text-[0.72rem] text-white/60 mt-0.5">
-                  {industry.subtitle}
-                </p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-18 lg:mt-20">
-          <a
-            href="#contact"
-            className="inline-flex items-center bg-primary text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/20 group"
-          >
-            <span>Discuss Your Industry Requirements</span>
-            <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
-        </div>
       </div>
     </section>
   );

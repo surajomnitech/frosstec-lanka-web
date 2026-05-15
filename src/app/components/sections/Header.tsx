@@ -57,54 +57,25 @@ export default function Header({ }: HeaderProps) {
       });
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(target) &&
-        !mobileMenuButtonRef.current?.contains(target) &&
-        isMobileMenuOpenRef.current
-      ) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isMobileMenuOpenRef.current) {
         setIsMobileMenuOpen(false);
         mobileMenuButtonRef.current?.focus();
       }
-      
-      // Handle arrow key navigation in mobile menu
-      if (event.key === 'ArrowDown' && isMobileMenuOpenRef.current) {
-        event.preventDefault();
-        const firstLink = mobileMenuLinksRef.current[0];
-        firstLink?.focus();
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('pointerdown', handleClickOutside, { passive: true });
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('pointerdown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
   const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
-    
-    // Focus first menu item when opening
-    if (newState) {
-      setTimeout(() => {
-        mobileMenuLinksRef.current[0]?.focus();
-      }, 100);
-    }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const closeMobileMenu = () => {
@@ -115,15 +86,15 @@ export default function Header({ }: HeaderProps) {
   // Mobile UX: Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-
     return () => {
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
   return (
+    <>
     <header 
-      className={`sticky top-0 z-50 transition-all duration-500 ease-out bg-white border-b border-transparent ${
+      className={`sticky top-0 z-[200] transition-all duration-500 ease-out bg-white border-b border-transparent ${
         isScrolled ? 'shadow-lg border-neutral/20' : ''
       }`}
       style={{ height: '72px' }}
@@ -197,7 +168,8 @@ export default function Header({ }: HeaderProps) {
             <button
               ref={mobileMenuButtonRef}
               onClick={toggleMobileMenu}
-              className="relative p-2 text-primary hover:text-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
+              className="relative z-[10000] p-2 text-primary hover:text-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg cursor-pointer"
+              style={{ touchAction: 'manipulation' }}
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -211,19 +183,21 @@ export default function Header({ }: HeaderProps) {
             </button>
           </div>
         </div>
+      </div>
+    </header>
 
-        {/* Mobile Menu */}
-        <div 
-          ref={mobileMenuRef}
-          id="mobile-menu"
-          className={`md:hidden transition-all duration-500 ease-out ${
-            isMobileMenuOpen 
-              ? 'opacity-100 translate-y-0 pointer-events-auto' 
-              : 'opacity-0 -translate-y-2 pointer-events-none absolute left-0 top-full w-full bg-white border-b border-neutral/20'
-          }`}
-          role="navigation"
-          aria-label="Mobile navigation"
-        >
+    {/* Mobile Menu - Outside Header */}
+    <div 
+      ref={mobileMenuRef}
+      id="mobile-menu"
+      className={`md:hidden fixed left-0 right-0 top-[72px] bg-white border-b border-neutral/20 shadow-xl transition-all duration-300 ease-out z-[9999] ${
+        isMobileMenuOpen 
+          ? 'opacity-100 translate-y-0 pointer-events-auto' 
+          : 'opacity-0 -translate-y-3 pointer-events-none'
+      }`}
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
           <div className="py-6 space-y-2">
             {NAVIGATION_LINKS.map((link, index) => {
               const sectionId = link.href.slice(1);
@@ -258,8 +232,7 @@ export default function Header({ }: HeaderProps) {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
-    </header>
+    </div>
+  </>
   );
 }

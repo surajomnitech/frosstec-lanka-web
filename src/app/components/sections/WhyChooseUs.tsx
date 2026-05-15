@@ -56,11 +56,11 @@ mb-4"
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 lg:gap-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 sm:gap-8 lg:gap-0">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center px-5 py-7 relative"
+              className="text-center px-4 sm:px-5 py-6 sm:py-7 relative"
             >
               {/* Vertical Divider - Hidden on mobile, shown on lg+ */}
               {index < features.length - 1 && (

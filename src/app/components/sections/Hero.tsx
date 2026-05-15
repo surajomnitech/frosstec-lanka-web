@@ -45,9 +45,10 @@ mb-7"
           </div>
 
           {/* Headline */}
-          <h1 className="text-[clamp(2.4rem,5.5vw,3.75rem)] font-extrabold text-white leading-[1.1] mb-7">
-            Commercial<br />Refrigeration Solutions<br />
-            You Can Rely On
+          <h1 className="text-[clamp(2rem,5.5vw,3.75rem)] font-extrabold text-white leading-[1.15] mb-6 sm:mb-7">
+            Commercial Refrigeration<br className="sm:hidden" />{" "}
+            <span className="hidden sm:inline"><br /></span>
+            Solutions You Can Rely On
           </h1>
 
           {/* Supporting Paragraph */}
@@ -56,11 +57,11 @@ mb-7"
           </p>
 
           {/* CTA Buttons - Refined Hierarchy */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             {/* PRIMARY CTA - Dominant Call Hotline */}
             <a
               href="tel:0777399999"
-              className="bg-accent text-white px-8 py-3.5 rounded-full text-[0.95rem] font-extrabold tracking-[0.01em] 
+              className="bg-accent text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-[0.875rem] sm:text-[0.95rem] font-extrabold tracking-[0.01em] 
               shadow-[0_4px_20px_rgba(224,92,26,0.4),0_0_40px_rgba(224,92,26,0.15)] 
               hover:shadow-[0_6px_28px_rgba(224,92,26,0.5),0_0_50px_rgba(224,92,26,0.2)] 
               hover:bg-[#D35419] 
@@ -80,7 +81,7 @@ mb-7"
             {/* SECONDARY CTA - Subdued Our Services */}
             <a
               href="#services"
-              className="bg-transparent border border-white/40 text-white px-7 py-3.5 rounded-full text-[0.9rem] font-bold tracking-[0.01em] 
+              className="bg-transparent border border-white/40 text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-[0.875rem] sm:text-[0.9rem] font-bold tracking-[0.01em] 
               hover:border-white/70 hover:bg-white/5
               active:scale-[0.98] 
               transition-all duration-300 ease-out

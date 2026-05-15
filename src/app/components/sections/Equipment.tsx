@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 
 export default function Equipment() {
   const equipmentItems = [
@@ -45,14 +44,15 @@ export default function Equipment() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full 
-bg-white 
-border border-accent/20 
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full 
+bg-primary/5 
+border border-primary/15 
 shadow-[0_4px_20px_rgba(0,0,0,0.08)] 
+backdrop-blur-xl 
 mb-5"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-            <span className="text-accent font-bold text-[0.7rem] uppercase tracking-[0.12em]">
+            <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
+            <span className="text-primary font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.2em]">
               EQUIPMENT WE HANDLE
             </span>
           </div>
@@ -71,7 +71,7 @@ mb-5"
         </div>
 
         {/* Equipment Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6 mb-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-12 sm:mb-14">
           {equipmentItems.map((item, index) => (
             <div
               key={index}
@@ -98,17 +98,6 @@ mb-5"
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-2">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full text-[0.9rem] font-bold tracking-[0.02em] hover:bg-primary/90 hover:shadow-[0_4px_18px_rgba(14,22,48,0.35)] active:scale-[0.97] transition-all duration-[220ms]"
-          >
-            Ask About Equipment Support
-            <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
       </div>
     </section>
