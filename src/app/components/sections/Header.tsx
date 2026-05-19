@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { PhoneCall , Menu, X } from 'lucide-react';
 
 const NAVIGATION_LINKS = [
@@ -102,30 +101,9 @@ export default function Header({ }: HeaderProps) {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link 
-              href="#home" 
-              className="flex items-center group focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg p-2"
-              aria-label="Go to homepage"
-            >
-              <Image
-                src="/ft-logo-notext.webp"
-                alt="FROSSTEC LANKA"
-                width={40}
-                height={40}
-                priority
-                className="mr-3 transition-transform duration-500 ease-out group-hover:scale-105"
-              />
-              <span className="text-xl font-bold tracking-tight text-primary transition-colors duration-300">
-                FROSSTEC LANKA
-              </span>
-            </Link>
-          </div>
-
           {/* Desktop Navigation */}
           <nav 
-            className="hidden md:flex items-center space-x-8 flex-1 justify-center"
+            className="hidden md:flex items-center space-x-8 flex-1"
             role="navigation"
             aria-label="Main navigation"
           >
