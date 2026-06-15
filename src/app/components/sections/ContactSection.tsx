@@ -49,7 +49,7 @@ export default function ContactSection() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Two Column Layout */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    
+
                     {/* LEFT COLUMN - Contact Info */}
                     <div className="space-y-8">
                         {/* Eyebrow */}
@@ -106,9 +106,9 @@ backdrop-blur-xl"
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-xs font-bold text-primary uppercase tracking-wide mb-1">WhatsApp</h3>
-                                        <a 
-                                            href="https://wa.me/94777399999" 
-                                            target="_blank" 
+                                        <a
+                                            href="https://wa.me/94777399999"
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-[0.9375rem] font-semibold text-gray-900 hover:text-green-600 transition-colors duration-300"
                                         >
@@ -126,7 +126,7 @@ backdrop-blur-xl"
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-xs font-bold text-primary uppercase tracking-wide mb-1">Email</h3>
-                                        <a 
+                                        <a
                                             href="mailto:info@frossteclanka.lk"
                                             className="text-[0.9375rem] font-semibold text-gray-900 hover:text-primary transition-colors duration-300 break-all"
                                         >
@@ -144,7 +144,7 @@ backdrop-blur-xl"
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-xs font-bold text-primary uppercase tracking-wide mb-1">Location</h3>
-                                        <a 
+                                        <a
                                             href="https://maps.google.com/?q=219+Station+Road+Udahamulla+Nugegoda+Sri+Lanka"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -301,9 +301,9 @@ backdrop-blur-xl"
                                 <div className="text-center pt-2">
                                     <p className="text-sm text-gray-600">
                                         Prefer WhatsApp?{' '}
-                                        <a 
-                                            href="https://wa.me/94777399999" 
-                                            target="_blank" 
+                                        <a
+                                            href="https://wa.me/94777399999"
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                             className="font-semibold text-green-600 hover:text-green-700 transition-colors duration-300"
                                         >

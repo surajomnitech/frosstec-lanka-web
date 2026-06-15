@@ -47,27 +47,23 @@ mb-5"
 
                         {/* Heading */}
                         <h2 className="text-[clamp(1.9rem,3.5vw,2.75rem)] font-extrabold text-primary leading-[1.15] mb-5">
-                            Your Trusted Partner in Refrigeration
+                            Your Trusted Partner in Commercial Refrigeration
                         </h2>
 
                         {/* Paragraphs */}
                         <div className="space-y-4 mb-8">
                             <p className="text-[1.0625rem] text-gray-700 leading-[1.7]">
-                                At Frosstec, we&apos;re more than just refrigeration experts —
-                                we are your trusted partners in keeping your business cool,
-                                efficient, and always running smoothly.
+                                At Frosstec, we combine technical expertise, responsive service, and dependable refrigeration solutions to support the efficient, reliable, and uninterrupted operation of your business.
+                            </p>
+                            <p className="text-[1.0625rem] text-gray-700 leading-[1.7]">
+                                Our team of highly trained technicians specialises in the installation, maintenance, and repair of all major makes and models of commercial refrigeration equipment, delivering prompt response times and exceptional service standards.
                             </p>
 
-                            <p className="text-[0.9375rem] text-gray-600 leading-[1.7]">
-                                Our team of highly skilled professionals services all makes and
-                                models of commercial refrigeration systems with rapid response
-                                and reliable solutions.
+                            <p className="text-[1.0625rem] text-gray-700 leading-[1.7]">
+                                We proudly serve a diverse range of industries, including hospitality, supermarkets, retail, distribution, food processing, and seafood operations, ensuring that critical refrigeration systems continue to perform at their best.
                             </p>
-
-                            <p className="text-[0.9375rem] text-gray-600 leading-[1.7]">
-                                We proudly serve a wide range of industries including
-                                hospitality, supermarkets, retail, distribution, and seafood
-                                processing.
+                            <p className="text-[1.0625rem] text-gray-700 leading-[1.7]">
+                                With a commitment to technical excellence, reliability, and customer satisfaction, Frosstec is the trusted partner businesses rely on to keep their operations running smoothly.
                             </p>
                         </div>
 

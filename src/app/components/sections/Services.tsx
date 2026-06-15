@@ -8,13 +8,13 @@ export default function Services() {
     {
       icon: Wrench,
       title: "Emergency Repairs",
-      description: "Rapid response and expert repair services for all commercial refrigeration systems, available 24/7 when you need us most.",
+      description: "24/7 emergency repair services designed to minimise downtime and restore business operations quickly.",
       image: "/images/services/service-emergency-repair.jpg"
     },
     {
       icon: ShieldCheck,
       title: "Service & Preventative Maintenance",
-      description: "Comprehensive maintenance programs designed to prevent breakdowns, maximize efficiency, and extend equipment lifespan.",
+      description: "Planned maintenance programs designed to maximise equipment performance and reduce unexpected breakdowns.",
       image: "/images/services/service-maintenance.jpg"
     },
     {

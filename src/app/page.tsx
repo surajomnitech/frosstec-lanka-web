@@ -19,11 +19,11 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <WhoWeAre />
+      <AboutUs />
+      <WhyChooseUs />
       <Services />
       <Industries />
       <EquipmentSection />
-      <WhyChooseUs />
-      <AboutUs />
       <ContactSection />
       <Footer />
       <MobileFloatingCTA />

@@ -29,7 +29,7 @@ export default function Hero({ }: HeroProps) {
 
       {/* Hero Content - Centered Brand */}
       <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 min-h-[700px] lg:min-h-[780px] flex flex-col items-center justify-center text-center py-24">
-        
+
         {/* Oversized Frosstec Lanka Logo */}
         <div className="mb-8 lg:mb-10">
           <div className="flex flex-col items-center">
@@ -44,7 +44,7 @@ export default function Hero({ }: HeroProps) {
                 className="w-[140px] h-[140px] lg:w-[180px] lg:h-[180px] drop-shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
               />
             </div>
-            
+
             {/* Brand Name - Oversized */}
             <div className="space-y-2">
               <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-[#2B7FFF] leading-[0.95] tracking-tight">
@@ -71,7 +71,7 @@ export default function Hero({ }: HeroProps) {
 
         {/* Supporting Paragraph */}
         <p className="text-[1rem] lg:text-[1.0625rem] text-white/75 leading-[1.7] max-w-[600px] mb-10 lg:mb-12">
-          From emergency repairs to custom installations and preventative maintenance, we keep your business cool, efficient, and always running smoothly.
+          At Frosstec, we combine technical expertise, responsive service, and dependable refrigeration solutions to support the efficient, reliable, and uninterrupted operation of your business.
         </p>
 
         {/* CTA Buttons */}

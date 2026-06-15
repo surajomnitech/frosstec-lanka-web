@@ -41,7 +41,7 @@ mb-5"
                             {/* Subtle accent line */}
                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/40 via-accent/20 to-transparent rounded-full hidden lg:block"></div>
                             <p className="text-gray-700 leading-[1.9] text-[1.0625rem] lg:text-[1.15rem] font-medium max-w-[48ch] lg:max-w-[42ch] lg:pl-6">
-                                At Frosstec, we focus on keeping refrigeration systems dependable and businesses running smoothly. Our technicians service all makes and models with practical expertise, clear communication, and a commitment to getting the job done right.
+                                At Frosstec, we are committed to keeping refrigeration systems dependable and businesses operating efficiently. Our technicians service all major makes and models with practical expertise, clear communication, and a dedication to delivering reliable results.
                             </p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ mb-5"
                                 </div>
                                 <h3 className="text-[0.9375rem] sm:text-[1rem] font-bold text-primary mb-3 sm:mb-3.5 leading-tight">Our Vision</h3>
                                 <p className="text-gray-600 text-[0.875rem] sm:text-[0.9375rem] leading-[1.65]">
-                                    Trusted refrigeration solutions built on reliability and technical excellence.
+                                    To be the leading provider of refrigeration solutions, recognised for reliability, innovation, and exceptional service.
                                 </p>
                             </div>
 
@@ -69,7 +69,7 @@ mb-5"
                                 </div>
                                 <h3 className="text-[0.9375rem] sm:text-[1rem] font-bold text-primary mb-3 sm:mb-3.5 leading-tight">Our Mission</h3>
                                 <p className="text-gray-600 text-[0.875rem] sm:text-[0.9375rem] leading-[1.65]">
-                                    Responsive service, quality repairs, and practical support that keep businesses running.
+                                    To provide responsive service, quality repairs, and practical support that maximise equipment performance and minimise downtime.
                                 </p>
                             </div>
 
@@ -86,6 +86,14 @@ mb-5"
                                     </li>
                                     <li className="flex items-center sm:items-start justify-center sm:justify-start">
                                         <span className="text-accent mr-2 font-bold shrink-0">•</span>
+                                        <span>Reliability</span>
+                                    </li>
+                                    <li className="flex items-center sm:items-start justify-center sm:justify-start">
+                                        <span className="text-accent mr-2 font-bold shrink-0">•</span>
+                                        <span>Technical Excellence</span>
+                                    </li>
+                                    <li className="flex items-center sm:items-start justify-center sm:justify-start">
+                                        <span className="text-accent mr-2 font-bold shrink-0">•</span>
                                         <span>Tailored Solutions</span>
                                     </li>
                                     <li className="flex items-center sm:items-start justify-center sm:justify-start">
@@ -95,10 +103,6 @@ mb-5"
                                     <li className="flex items-center sm:items-start justify-center sm:justify-start">
                                         <span className="text-accent mr-2 font-bold shrink-0">•</span>
                                         <span>Customer Satisfaction</span>
-                                    </li>
-                                    <li className="flex items-center sm:items-start justify-center sm:justify-start">
-                                        <span className="text-accent mr-2 font-bold shrink-0">•</span>
-                                        <span>Respect</span>
                                     </li>
                                 </ul>
                             </div>
