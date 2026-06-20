@@ -7,6 +7,11 @@
   --color-accent: #BF4215;
   --color-background: #F8F9FA;
   --color-neutral: #E5E7EB;
+
+  --color-surface-cool: #EEF1F8;
+  --color-contact-bg: #F0F4FA;
+  --color-deep-navy: #071B3A;
+  --color-footer-navy: #0E1630;
 }
 
 @theme inline {
@@ -16,7 +21,14 @@
   --color-accent: var(--color-accent);
   --color-background: var(--color-background);
   --color-neutral: var(--color-neutral);
-  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-surface-cool: var(--color-surface-cool);
+  --color-contact-bg: var(--color-contact-bg);
+  --color-deep-navy: var(--color-deep-navy);
+  --color-footer-navy: var(--color-footer-navy);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-poppins), var(--font-inter), system-ui, sans-serif;
 }
 
 /* Global overflow protection */
@@ -29,9 +41,20 @@ body {
 body {
   background-color: var(--color-background);
   color: var(--color-primary-dark);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.subheading {
+  font-family: var(--font-poppins), var(--font-inter), system-ui, sans-serif;
 }
 
 @layer components {

@@ -1,115 +1,176 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { PhoneCall } from 'lucide-react';
+import {
+  ArrowRight,
+  ShieldCheck,
+  Snowflake,
+  Warehouse,
+  Wrench,
+} from 'lucide-react';
 
-interface HeroProps { }
+const HERO_SLIDES = [
+  {
+    image: '/images/hero/hero-technician.jpg',
+    alt: 'Technician servicing commercial refrigeration equipment',
+  },
+  {
+    image: '/images/hero/hero-cold-room.jpg',
+    alt: 'Commercial cold room and freezer room interior',
+  },
+  {
+    image: '/images/hero/hero-display-fridge.jpg',
+    alt: 'Supermarket commercial display refrigeration units',
+  },
+  {
+    image: '/images/hero/hero-chiller.jpg',
+    alt: 'Commercial rooftop refrigeration and chiller system',
+  },
+];
 
-export default function Hero({ }: HeroProps) {
+const SERVICE_SHORTCUTS = [
+  {
+    icon: Wrench,
+    label: 'Emergency Repairs',
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Preventative Maintenance',
+  },
+  {
+    icon: Snowflake,
+    label: 'Cold Room Solutions',
+  },
+  {
+    icon: Warehouse,
+    label: 'Equipment Sales',
+  },
+];
+
+export default function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % HERO_SLIDES.length);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-[700px] lg:min-h-[780px] overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero/hero-refrigeration-system.png"
-          alt="Commercial refrigeration systems"
-          fill
-          className="object-cover object-[72%_center]"
-          priority
-          sizes="100vw"
-        />
+    <section
+      id="home"
+      className="relative overflow-hidden bg-gradient-to-b from-white to-[#F8F9FA]"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 sm:py-18 lg:py-24">
+        <div className="grid lg:grid-cols-[0.86fr_1.14fr] gap-12 lg:gap-16 xl:gap-20 items-center">
+          <div className="max-w-[560px]">
+            <p className="text-[0.76rem] sm:text-[0.84rem] font-extrabold uppercase tracking-[0.24em] text-accent mb-5">
+              Frosstec Lanka
+            </p>
 
-        {/* Refined Dark Navy Gradient Overlay - Better Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#031225]/95 via-[#071B3A]/85 to-[#071B3A]/75"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent"></div>
+            <h1 className="text-[clamp(2.05rem,4vw,3.55rem)] font-extrabold text-primary-dark leading-[1.06] tracking-tight mb-6">
+              Commercial Refrigeration Support for Sri Lankan Businesses
+            </h1>
 
-        {/* Subtle Orange Accent Glow */}
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/15 rounded-full filter blur-3xl translate-x-16 translate-y-16"></div>
-      </div>
+            <p className="text-[1.08rem] sm:text-[1.18rem] lg:text-[1.28rem] font-bold text-primary leading-[1.4] mb-5">
+              Silent Coils, Perfect Degrees, Peace of Mind.
+            </p>
 
-      {/* Hero Content - Centered Brand */}
-      <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 min-h-[700px] lg:min-h-[780px] flex flex-col items-center justify-center text-center py-24">
+            <p className="text-[1rem] lg:text-[1.08rem] text-gray-600 leading-[1.75] max-w-[52ch] mb-8">
+              Responsive service, quality repairs, and practical refrigeration
+              support for businesses that depend on continuous cooling.
+            </p>
 
-        {/* Oversized Frosstec Lanka Logo */}
-        <div className="mb-8 lg:mb-10">
-          <div className="flex flex-col items-center">
-            {/* Logo Icon */}
-            <div className="mb-6 lg:mb-8">
-              <Image
-                src="/ft-logo-notext.webp"
-                alt="Frosstec Lanka"
-                width={180}
-                height={180}
-                priority
-                className="w-[140px] h-[140px] lg:w-[180px] lg:h-[180px] drop-shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-              />
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-sm sm:text-[0.95rem] font-bold text-white shadow-[0_10px_26px_rgba(191,66,21,0.25)] transition-all duration-300 hover:bg-[#A93610] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(191,66,21,0.32)] focus:outline-none focus:ring-4 focus:ring-accent/20"
+            >
+              Our Services
+              <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
+            </a>
+
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 max-w-[590px]">
+              {SERVICE_SHORTCUTS.map((item) => (
+                <a
+                  key={item.label}
+                  href="#services"
+                  className="group flex items-center gap-3.5 rounded-xl border border-primary/12 bg-white px-4 py-3.5 shadow-[0_10px_28px_rgba(39,58,115,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/45 hover:shadow-[0_14px_34px_rgba(39,58,115,0.13)]"
+                >
+                  <div className="w-11 h-11 rounded-full bg-accent/10 border border-accent/25 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-accent group-hover:border-accent">
+                    <item.icon
+                      className="w-5 h-5 text-accent transition-colors duration-300 group-hover:text-white"
+                      strokeWidth={2.4}
+                    />
+                  </div>
+
+                  <span className="text-[0.84rem] sm:text-[0.9rem] font-extrabold text-primary-dark leading-snug group-hover:text-primary transition-colors duration-300">
+                    {item.label}
+                  </span>
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Brand Name - Oversized */}
-            <div className="space-y-2">
-              <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-[#2B7FFF] leading-[0.95] tracking-tight">
-                FROSSTEC
-              </h1>
-              <h2 className="text-[clamp(2rem,6vw,4rem)] font-black text-accent leading-[0.95] tracking-wide">
-                LANKA
-              </h2>
+          <div className="relative">
+            <div className="relative rounded-[2.25rem] bg-gradient-to-br from-[#071B3A] via-primary-dark to-[#0E1630] p-4 sm:p-5 lg:p-6 xl:p-7 shadow-[0_26px_80px_rgba(14,22,48,0.32)] overflow-hidden">
+              <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
+              <div className="absolute -left-24 -bottom-24 w-80 h-80 rounded-full bg-black/20 blur-3xl" />
+
+              <div className="relative">
+                <div className="relative aspect-[16/11] min-h-[330px] sm:min-h-[430px] lg:min-h-[520px] xl:min-h-[560px] overflow-hidden rounded-[1.5rem] border border-white/20 bg-[#071B3A] shadow-[0_20px_54px_rgba(0,0,0,0.26)]">
+                  {HERO_SLIDES.map((slide, index) => {
+                    const isActive = activeSlide === index;
+
+                    return (
+                      <div
+                        key={slide.image}
+                        className={`absolute inset-0 transition-all duration-[850ms] ease-out ${isActive
+                          ? 'opacity-100 translate-x-0 scale-100'
+                          : 'opacity-0 translate-x-5 scale-[1.02]'
+                          }`}
+                      >
+                        <Image
+                          src={slide.image}
+                          alt={slide.alt}
+                          fill
+                          priority={index === 0}
+                          sizes="(max-width: 1024px) 100vw, 58vw"
+                          className="object-cover object-center"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#071B3A]/28 via-transparent to-transparent" />
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-5 flex items-center justify-center gap-2">
+                  {HERO_SLIDES.map((slide, index) => (
+                    <button
+                      key={slide.image}
+                      type="button"
+                      onClick={() => setActiveSlide(index)}
+                      className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index
+                        ? 'w-8 bg-white'
+                        : 'w-2 bg-white/45 hover:bg-white/70'
+                        }`}
+                      aria-label={`Show hero image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Tagline */}
-        <div className="mb-8 lg:mb-10">
-          <p className="text-[0.875rem] lg:text-[0.95rem] text-white/90 font-semibold uppercase tracking-[0.15em] mb-3">
-            COMMERCIAL REFRIGERATION SPECIALISTS
-          </p>
-        </div>
-
-        {/* Headline */}
-        <h3 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white leading-[1.2] mb-5 max-w-[800px]">
-          Commercial Refrigeration Solutions You Can Rely On
-        </h3>
-
-        {/* Supporting Paragraph */}
-        <p className="text-[1rem] lg:text-[1.0625rem] text-white/75 leading-[1.7] max-w-[600px] mb-10 lg:mb-12">
-          At Frosstec, we combine technical expertise, responsive service, and dependable refrigeration solutions to support the efficient, reliable, and uninterrupted operation of your business.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          {/* PRIMARY CTA - Call Hotline */}
-          <a
-            href="tel:0777399999"
-            className="bg-accent text-white px-8 py-4 rounded-full text-[0.95rem] font-bold tracking-[0.01em] 
-            shadow-[0_4px_24px_rgba(224,92,26,0.45),0_0_40px_rgba(224,92,26,0.2)] 
-            hover:shadow-[0_6px_32px_rgba(224,92,26,0.55),0_0_50px_rgba(224,92,26,0.25)] 
-            hover:bg-[#D35419] 
-            active:scale-[0.98] 
-            transition-all duration-300 ease-out
-            focus:outline-none focus:ring-2 focus:ring-accent/30
-            flex items-center justify-center gap-2.5 group
-            relative overflow-hidden min-w-[240px]"
-          >
-            <PhoneCall className="w-5 h-5 flex-shrink-0 relative z-10" strokeWidth={2.5} />
-            <span className="whitespace-nowrap relative z-10">Call Hotline 077 739 9999</span>
-
-            {/* Subtle inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </a>
-
-          {/* SECONDARY CTA - Our Services */}
-          <a
-            href="#services"
-            className="bg-transparent border-2 border-white/50 text-white px-8 py-4 rounded-full text-[0.95rem] font-bold tracking-[0.01em] 
-            hover:border-white/80 hover:bg-white/10
-            active:scale-[0.98] 
-            transition-all duration-300 ease-out
-            focus:outline-none focus:ring-2 focus:ring-white/30
-            flex items-center justify-center group min-w-[200px]"
-          >
-            <span className="whitespace-nowrap">Our Services</span>
-          </a>
-        </div>
-
       </div>
     </section>
   );

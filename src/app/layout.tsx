@@ -1,20 +1,39 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter, Poppins } from 'next/font/google';
+import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['500', '600', '700', '800'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "Frosstec Lanka - Industrial Refrigeration Solutions",
-  description: "Leading provider of industrial refrigeration and HVAC solutions in Sri Lanka",
+  title: 'Frosstec Lanka - Industrial Refrigeration Solutions',
+  description:
+    'Leading provider of industrial refrigeration and HVAC solutions in Sri Lanka',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' }
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-    ]
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
   },
-  manifest: '/site.webmanifest'
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -23,15 +42,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className="min-h-screen" suppressHydrationWarning>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

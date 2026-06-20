@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { SectionPill } from '../ui/SectionPill';
 
 export default function Industries() {
   const industries = [
@@ -56,23 +57,12 @@ export default function Industries() {
   ];
 
   return (
-    <section id="industries" className="bg-white py-20 lg:py-24">
+    <section id="industries" className="bg-surface-cool py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full 
-bg-primary/5 
-border border-primary/15 
-shadow-[0_4px_20px_rgba(0,0,0,0.08)] 
-backdrop-blur-xl 
-mb-5"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
-            <span className="text-primary font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.2em]">
-              INDUSTRIES WE SERVE
-            </span>
-          </div>
 
+          <SectionPill variant="light">INDUSTRIES WE SERVE</SectionPill>
           <h2 className="text-[clamp(1.95rem,4vw,2.75rem)] font-extrabold text-primary mb-5 leading-[1.15] max-w-[28ch] mx-auto">
             Trusted Across Multiple Industries
           </h2>

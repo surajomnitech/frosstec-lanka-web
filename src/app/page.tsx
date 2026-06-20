@@ -1,6 +1,5 @@
 import Header from './components/sections/Header';
 import Hero from './components/sections/Hero';
-import TrustBar from './components/sections/TrustBar';
 import WhoWeAre from './components/sections/WhoWeAre';
 import Services from './components/sections/Services';
 import Industries from './components/sections/Industries';
@@ -17,7 +16,6 @@ export default function Home() {
     <main className="min-h-screen pb-24 md:pb-0">
       <Header />
       <Hero />
-      <TrustBar />
       <WhoWeAre />
       <AboutUs />
       <WhyChooseUs />

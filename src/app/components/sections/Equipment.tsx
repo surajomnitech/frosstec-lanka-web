@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { SectionPill } from '../ui/SectionPill';
 
 export default function Equipment() {
   const equipmentItems = [
@@ -39,24 +40,12 @@ export default function Equipment() {
   ];
 
   return (
-    <section id="equipment" className="pt-24 lg:pt-28 pb-20 lg:pb-24 bg-[#F8FAFC]">
+
+    <section id="equipment" className="pt-24 lg:pt-28 pb-20 lg:pb-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full 
-bg-primary/5 
-border border-primary/15 
-shadow-[0_4px_20px_rgba(0,0,0,0.08)] 
-backdrop-blur-xl 
-mb-5"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
-            <span className="text-primary font-extrabold text-[11px] sm:text-xs uppercase tracking-[0.2em]">
-              EQUIPMENT WE HANDLE
-            </span>
-          </div>
-
+          <SectionPill variant="light">EQUIPMENT WE HANDLE</SectionPill>
           {/* Heading */}
           <h2 className="text-[clamp(1.95rem,4vw,2.75rem)] font-extrabold text-primary mb-5 leading-[1.15] max-w-[28ch] mx-auto">
             We Service All Types of<br />
@@ -75,10 +64,10 @@ mb-5"
           {equipmentItems.map((item, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl border border-gray-200/60 hover:border-accent/50 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden flex flex-col h-full"
+              className="group bg-white rounded-xl border border-primary/12 hover:border-accent/55 shadow-[0_8px_24px_rgba(39,58,115,0.08)] hover:shadow-[0_16px_42px_rgba(39,58,115,0.16)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden flex flex-col h-full"
             >
               {/* Image Container - Increased Height & Refined Padding */}
-              <div className="h-[170px] bg-gradient-to-b from-gray-50/50 to-white p-6 flex items-center justify-center">
+              <div className="h-[175px] bg-gradient-to-b from-[#F3F6FB] to-white p-6 flex items-center justify-center border-b border-primary/8">
                 <div className="relative w-full h-full">
                   <Image
                     src={item.image}
