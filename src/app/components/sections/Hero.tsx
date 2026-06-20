@@ -78,7 +78,7 @@ export default function Hero() {
             </p>
 
             <h1 className="text-[clamp(2.05rem,4vw,3.55rem)] font-extrabold text-primary-dark leading-[1.06] tracking-tight mb-6">
-              Commercial Refrigeration Support for Sri Lankan Businesses
+              Commercial Refrigeration Services for Sri Lankan Businesses
             </h1>
 
             <p className="text-[1.08rem] sm:text-[1.18rem] lg:text-[1.28rem] font-bold text-primary leading-[1.4] mb-5">
@@ -86,8 +86,7 @@ export default function Hero() {
             </p>
 
             <p className="text-[1rem] lg:text-[1.08rem] text-gray-600 leading-[1.75] max-w-[52ch] mb-8">
-              Responsive service, quality repairs, and practical refrigeration
-              support for businesses that depend on continuous cooling.
+              For companies that rely on constant cooling, responsive service, high-quality maintenance, and useful refrigeration support.
             </p>
 
             <a

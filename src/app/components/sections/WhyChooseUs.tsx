@@ -16,37 +16,37 @@ export default function WhyChooseUs() {
       icon: Clock3,
       title: 'Prompt Breakdown Response',
       description:
-        'Responsive support when refrigeration issues affect business continuity.',
+        'Prompt assistance when company continuity is impacted by refrigeration problems.',
     },
     {
       icon: Wrench,
-      title: 'All Major Makes & Models',
+      title: 'Every Major Brand and Model',
       description:
-        'Service experience across a wide range of commercial refrigeration equipment.',
+        'Experience providing service for a variety of commercial refrigeration equipment.',
     },
     {
       icon: ShieldCheck,
       title: 'Preventative Maintenance Planning',
       description:
-        'Planned maintenance support to reduce unexpected failures and downtime.',
+        'Planned maintenance assistance to cut down on unplanned malfunctions and downtime.',
     },
     {
       icon: Snowflake,
       title: 'Cold Room & Freezer Room Expertise',
       description:
-        'Practical support for cold rooms, freezer rooms, and temperature-controlled spaces.',
+        'Useful assistance for temperature-controlled areas, freezer rooms, and cold rooms.',
     },
     {
       icon: Cog,
       title: 'Practical Service Recommendations',
       description:
-        'Clear guidance based on what your system needs, not a one-size-fits-all approach.',
+        'Rather than using a one-size-fits-all strategy, provide clear instructions based on what your system requires.',
     },
     {
       icon: MessageSquare,
       title: 'Clear Communication',
       description:
-        'Straightforward updates, service explanations, and support throughout each job.',
+        'Quick updates, service descriptions, and assistance for every task.',
     },
   ];
 

@@ -73,9 +73,8 @@ export default function ContactSection() {
                             </h2>
 
                             <p className="text-[1.0625rem] text-white/68 leading-[1.75] max-w-[52ch]">
-                                Whether it is an emergency breakdown, preventative maintenance,
-                                or a new installation, our team is ready to help keep your
-                                business running.
+                                Our staff is prepared to assist in keeping your business operating, whether it is a new installation, preventative maintenance, or an emergency breakdown.
+
                             </p>
                         </div>
 

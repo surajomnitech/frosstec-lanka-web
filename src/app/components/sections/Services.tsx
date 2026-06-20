@@ -16,42 +16,42 @@ const services = [
     icon: Wrench,
     title: 'Emergency Repairs',
     description:
-      '24/7 emergency repair services designed to minimise downtime and restore business operations quickly.',
+      'Emergency repairs 24/7 to get you up and running as quickly as possible and minimise business interruption.',
     image: '/images/services/service-emergency-repair.jpg',
   },
   {
     icon: ShieldCheck,
     title: 'Service & Preventative Maintenance',
     description:
-      'Planned maintenance programs designed to maximise equipment performance and reduce unexpected breakdowns.',
+      'Scheduled maintenance programs to improve equipment reliability and reduce un-anticipated breakdowns.',
     image: '/images/services/service-maintenance.jpg',
   },
   {
     icon: ThermometerSnowflake,
     title: 'Custom Design & Installation',
     description:
-      'Tailored refrigeration solutions designed specifically for your business needs, from consultation to complete installation.',
+      'Customized refrigeration solutions, from consultation to full installation, created especially for your business requirements.',
     image: '/images/services/service-installation.jpg',
   },
   {
     icon: Warehouse,
     title: 'Equipment Sales',
     description:
-      'Premium commercial refrigeration equipment from leading brands, with expert guidance and competitive pricing.',
+      'High-end commercial refrigeration products from top manufacturers, with professional advice and affordable prices.',
     image: '/images/services/service-equipment-sales.jpg',
   },
   {
     icon: Snowflake,
     title: 'Cold Room & Freezer Room Solutions',
     description:
-      'Large-scale cold storage solutions including walk-in coolers, freezers, and specialized cold room construction.',
+      'Large-scale cold storage options, such as freezers, walk-in coolers, and specially designed cold rooms.',
     image: '/images/services/service-cold-room.jpg',
   },
   {
     icon: MessageSquare,
     title: 'Expert Advice & Guidance',
     description:
-      'Practical guidance for system suitability, service planning, and equipment recommendations based on your business needs.',
+      'Helpful advice on equipment recommendations, service planning, and system suitability tailored to your business requirements.',
     image: '/images/services/service-consultation.jpg',
   },
 ];
@@ -64,13 +64,11 @@ export default function Services() {
 
           <SectionPill variant="light">OUR SERVICES</SectionPill>
           <h2 className="text-[clamp(1.95rem,4vw,2.75rem)] font-extrabold text-primary-dark mb-5 leading-[1.15] max-w-[29ch] mx-auto">
-            Comprehensive Commercial Refrigeration Services
+            Complete Commercial Refrigeration Services
           </h2>
 
           <p className="text-[1.0625rem] text-gray-600 leading-[1.75] max-w-[65ch] mx-auto">
-            From emergency repairs and scheduled maintenance to custom design and
-            installation, we deliver solutions to keep your business running
-            smoothly.
+            Whether it’s emergency repairs, scheduled maintenance, or custom design and installation, we have solutions to keep your business running smoothly.
           </p>
         </div>
 
