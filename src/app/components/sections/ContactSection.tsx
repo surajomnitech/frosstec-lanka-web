@@ -17,12 +17,14 @@ export default function ContactSection() {
         name: '',
         company: '',
         phone: '',
+        email: '',
         service: '',
         message: '',
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -36,14 +38,28 @@ export default function ContactSection() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setShowSuccess(false);
+        setErrorMessage('');
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            const response = await fetch('/api/send-contact-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send inquiry.');
+            }
+
             setShowSuccess(true);
             setFormData({
                 name: '',
                 company: '',
                 phone: '',
+                email: '',
                 service: '',
                 message: '',
             });
@@ -51,7 +67,12 @@ export default function ContactSection() {
             setTimeout(() => {
                 setShowSuccess(false);
             }, 5000);
-        }, 1500);
+        } catch (error) {
+            console.error('Error sending inquiry:', error);
+            setErrorMessage('Sorry, something went wrong. Please call or WhatsApp us directly.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -130,7 +151,7 @@ export default function ContactSection() {
                                 </a>
 
                                 <a
-                                    href="mailto:info@frossteclanka.lk"
+                                    href="mailto:suraj145@gmail.com"
                                     className="group rounded-2xl bg-white/[0.07] border border-white/[0.12] p-5 hover:bg-white/[0.10] transition-all duration-300"
                                 >
                                     <div className="w-11 h-11 rounded-full bg-accent/12 border border-accent/25 flex items-center justify-center mb-4">
@@ -142,7 +163,7 @@ export default function ContactSection() {
                                     </p>
 
                                     <p className="text-[0.95rem] font-bold text-white group-hover:text-accent transition-colors duration-300 break-all">
-                                        info@frossteclanka.lk
+                                        suraj145@gmail.com
                                     </p>
                                 </a>
                             </div>
@@ -211,6 +232,14 @@ export default function ContactSection() {
                                 </div>
                             )}
 
+                            {errorMessage && (
+                                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                    <p className="text-sm font-semibold text-red-800">
+                                        {errorMessage}
+                                    </p>
+                                </div>
+                            )}
+
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">
@@ -258,7 +287,20 @@ export default function ContactSection() {
                                         placeholder="077 123 4567"
                                     />
                                 </div>
-
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">
+                                        Email Address
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-gray-900"
+                                        placeholder="your@email.com"
+                                    />
+                                </div>
                                 <div>
                                     <label htmlFor="service" className="block text-sm font-bold text-gray-700 mb-2">
                                         Service Requirement
