@@ -68,9 +68,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-b from-white to-[#F8F9FA]"
+      className="relative bg-gradient-to-b from-white to-[#F8F9FA]"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-14 pb-24 sm:py-[4.5rem] lg:py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 xl:px-14 pt-14 pb-24 sm:py-[4.5rem] lg:py-24">
         <div className="grid min-w-0 lg:grid-cols-[0.86fr_1.14fr] gap-x-12 lg:gap-x-16 xl:gap-x-20 gap-y-7 sm:gap-y-10 lg:gap-y-0 items-center">
           {/* Text Content */}
           <div className="max-w-[560px] min-w-0 order-1 lg:col-start-1 lg:row-start-1">
@@ -101,13 +101,13 @@ export default function Hero() {
           </div>
 
           {/* Image Slider */}
-          <div className="relative order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full max-w-full min-w-0">
-            <div className="relative mx-auto w-full max-w-[480px] lg:max-w-none rounded-[1.6rem] sm:rounded-[2.25rem] bg-gradient-to-br from-[#071B3A] via-primary-dark to-[#0E1630] p-2.5 sm:p-5 lg:p-6 xl:p-7 shadow-[0_18px_56px_rgba(14,22,48,0.24)] lg:shadow-[0_26px_80px_rgba(14,22,48,0.32)] overflow-hidden">
+          <div className="relative order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full max-w-full min-w-0 lg:justify-self-end">
+            <div className="relative mx-auto lg:mx-0 w-full max-w-[480px] lg:max-w-[680px] xl:max-w-[720px] rounded-[1.6rem] sm:rounded-[2.25rem] bg-gradient-to-br from-[#071B3A] via-primary-dark to-[#0E1630] shadow-[0_18px_56px_rgba(14,22,48,0.24)] lg:shadow-[0_26px_80px_rgba(14,22,48,0.32)] overflow-hidden">
               <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
               <div className="absolute -left-24 -bottom-24 w-80 h-80 rounded-full bg-black/20 blur-3xl" />
 
               <div className="relative">
-                <div className="relative h-[220px] sm:h-[360px] lg:h-auto lg:aspect-[16/11] lg:min-h-[520px] xl:min-h-[560px] overflow-hidden rounded-[1.15rem] sm:rounded-[1.5rem] border border-white/20 bg-[#071B3A] shadow-[0_16px_42px_rgba(0,0,0,0.24)]">
+                <div className="relative h-[220px] sm:h-[360px] lg:h-[500px] xl:h-[540px] overflow-hidden rounded-t-[1.6rem] sm:rounded-t-[2.25rem] border-[10px] sm:border-[20px] lg:border-[26px] xl:border-[28px] border-[#071B3A] bg-[#071B3A]">
                   {HERO_SLIDES.map((slide, index) => {
                     const isActive = activeSlide === index;
 
@@ -136,7 +136,7 @@ export default function Hero() {
                   })}
                 </div>
 
-                <div className="mt-3 lg:mt-5 flex items-center justify-center gap-2">
+                <div className="relative flex items-center justify-center gap-2 pt-3 lg:pt-4 pb-4 lg:pb-5">
                   {HERO_SLIDES.map((slide, index) => (
                     <button
                       key={slide.image}
